@@ -24,6 +24,7 @@
         }
         .leaflet-popup-content {
             width:auto !important;
+            min-width: 275px;
             padding-right:10px;
         }
         .leaflet-tooltip {
