@@ -1,0 +1,13 @@
+* Clean-Maps
+** Overview
+This repository hosts a showcase of some personal mapping projects.
+
+
+To go to the GitHub Pages landing page for the project [[https://nikolovdeyan.github.io/clean-maps/][click here]].
+
+** Resources and Tools
++ QGIS
++ QGIS2WEB
++ Folium
++ Python
++ HTML/CSS
