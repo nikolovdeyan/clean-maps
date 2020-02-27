@@ -11,3 +11,6 @@ To go to the GitHub Pages landing page for the project [[https://nikolovdeyan.gi
 + Folium
 + Python
 + HTML/CSS
+
+** Documentation and Recipes
+- [[https://nikolovdeyan.github.io/clean-maps/recipes/r_Building_a_QGIS2WEB_BG_population_density_map.html][Recipe: Building a QGIS2WEB Population Density Map]]
