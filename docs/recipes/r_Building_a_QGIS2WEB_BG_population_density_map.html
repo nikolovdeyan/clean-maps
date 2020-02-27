@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2020-02-27 Thu 14:11 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&lrm;</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="deo">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link href="https://fonts.googleapis.com/css?family=Play|Roboto+Mono|Roboto+Slab" rel="stylesheet">
+<link href="/home/deo/Dropbox/org/resources/dnick-doc-themes/styles/css/dnick-doc-style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<main class="recipe">
+<div id="docmeta">
+<H1 id="doctitle" class="title">
+<p>
+Building the Bulgaria Population Density Map
+</p>
+</H1>
+<hr>
+<div id="docmeta-doctype">
+<p>
+<b>Recipe Document</b>
+</p>
+</div>
+<hr>
+<h2>About this Document</h2>
+<div id="docmeta-table" class="recipe">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Description</b></td>
+<td class="org-left"><b>Creating an interactive web map with QGIS and the QGIS2WEB plugin.</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Version/Timestamp</b></td>
+<td class="org-left"><b>v.1.2</b> / 2020-02-27 14:11:34</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Privacy</b></td>
+<td class="org-left"><b>Public</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Author</b></td>
+<td class="org-left">Deyan Nikolov (&lt;deyan.nikolov AT google DOT com&gt;)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Keywords</b></td>
+<td class="org-left">maps, cartography, bulgaria, population</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+
+<div id="outline-container-orgf180a9f" class="outline-2">
+<h2 id="orgf180a9f">Objectives</h2>
+<div class="outline-text-2" id="text-orgf180a9f">
+<ul class="org-ul">
+<li>This project aims to create a comprehensive choropleth map visualizing the population density statistic for Bulgaria in an interactive environment that can be viewed online.</li>
+<li>The project strives to fulfill the following objectives:
+<ul class="org-ul">
+<li>The data used will be official government data or free open-sourced data available online. All data sources will be documented in the project description.</li>
+<li>The data used will be continuously checked for consistency against official sources. Discrepancies will be documented.</li>
+<li>The exported map will illustrate the population density statistic at zemlishte/settlement ground level.</li>
+<li>The exported map will contain the statistic for all settlements contained in a single zemlishte correctly aggregated and ranked.</li>
+<li>The exported map will contain an on-click annotation layer to display data for the settlements included in a given zemlishte.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf6ecb8e" class="outline-2">
+<h2 id="orgf6ecb8e">Prerequisites</h2>
+<div class="outline-text-2" id="text-orgf6ecb8e">
+</div>
+<div id="outline-container-org6c35092" class="outline-3">
+<h3 id="org6c35092">Software</h3>
+<div class="outline-text-3" id="text-org6c35092">
+<ul class="org-ul">
+<li>QGIS</li>
+<li>DBeaver or other software to query SQLite databases.</li>
+<li>QGIS2WEB plugin installed and working for QGIS.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org09a3318" class="outline-3">
+<h3 id="org09a3318">Input Data</h3>
+<div class="outline-text-3" id="text-org09a3318">
+<ul class="org-ul">
+<li>For this project we are going to use the following data sources:
+<ul class="org-ul">
+<li><a href="https://github.com/nikolovdeyan/Bulgaria-geocoding.git">Bulgaria-geocoding</a> (Administrative boundaries for Bulgaria).</li>
+<li><a href="https://github.com/nikolovdeyan/clean-stats.git">Clean-Stats</a> (Compiled statistical information for the administrative units).</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5c9e9b0" class="outline-2">
+<h2 id="org5c9e9b0">QGIS Project Preparation</h2>
+<div class="outline-text-2" id="text-org5c9e9b0">
+</div>
+<div id="outline-container-org42c60f7" class="outline-3">
+<h3 id="org42c60f7">Working Directory</h3>
+<div class="outline-text-3" id="text-org42c60f7">
+<ul class="org-ul">
+<li>Prepare a working directory for the project.</li>
+<li>Clone the input data repositories in the <code>input/</code> directory.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2d8774d" class="outline-3">
+<h3 id="org2d8774d">Project Setup</h3>
+<div class="outline-text-3" id="text-org2d8774d">
+<ul class="org-ul">
+<li>Start QGIS, create a new project, and save it in the working directory.</li>
+<li>In <code>Project</code> -&gt; <code>Properties</code>:
+<ul class="org-ul">
+<li>Add project title: <b>Bulgaria Population Density 2018</b>.</li>
+<li>Set units for distance measurement to <b>kilometers</b>.</li>
+<li>Set units for area measurement to <b>square kilometers</b>.</li>
+</ul></li>
+<li>Fill in the <code>Metadata</code> section.</li>
+<li>Change coordinate system to: <code>WGS 84 / UTM zone 34N</code>. (note: optional, will not export).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6becd98" class="outline-3">
+<h3 id="org6becd98">Data Preparation and Verification</h3>
+<div class="outline-text-3" id="text-org6becd98">
+</div>
+<div id="outline-container-org0174b3b" class="outline-4">
+<h4 id="org0174b3b">Population Data File</h4>
+<div class="outline-text-4" id="text-org0174b3b">
+<ul class="org-ul">
+<li>We will extract the settlements population data for 2018 from the Clean-Stats project and will save it as a csv file to work with later.</li>
+<li>Prepare the population data file:
+<ul class="org-ul">
+<li>In DBeaver open the clean-stats database.</li>
+<li>Use the query below to export the settlements population information needed:</li>
+<li>Save in <code>input/</code> as <code>census_data_settlements_2018.csv</code></li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span class="org-keyword">SELECT</span> EKATTE_ID, POPULATION <span class="org-keyword">FROM</span> SETTL_POPULATION_NSI 
+<span class="org-keyword">WHERE</span> START_DATE &lt;= <span class="org-type">date</span>(<span class="org-string">'2018-01-01'</span>) <span class="org-keyword">AND</span> END_DATE &gt; <span class="org-type">date</span>(<span class="org-string">'2018-01-01'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb090fe9" class="outline-4">
+<h4 id="orgb090fe9">Verify Data</h4>
+<div class="outline-text-4" id="text-orgb090fe9">
+<ul class="org-ul">
+<li>Check the number of settlements in EKATTE official source: <b>5256</b>.
+<ul class="org-ul">
+<li>National Register of Populated Places URL: <a href="https://www.nsi.bg/nrnm/">https://www.nsi.bg/nrnm/</a></li>
+</ul></li>
+
+<li>Check the number of settlements in Clean-Stats database with the query below: <b>5256</b>.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span class="org-keyword">SELECT</span> <span class="org-builtin">COUNT</span>(*) <span class="org-keyword">FROM</span> settlements 
+<span class="org-keyword">WHERE</span> START_DATE &gt;= <span class="org-type">date</span>(<span class="org-string">'2018-01-01'</span>) <span class="org-keyword">and</span> END_DATE &lt; <span class="org-type">date</span>(<span class="org-string">'2018-01-01'</span>);
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Check the number of settlements in Bulgaria-geocoding <code>settlements.csv</code> file with the expression below: <b>5256</b>.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python">count_distinct( <span class="org-string">"EKATTE_ID"</span> )
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Verify the number of grounds features:
+<ul class="org-ul">
+<li>The number of features in the <code>grounds.geojson</code> file: <b>4615</b>.</li>
+<li>Check the number of settlements with parent grounds in <code>settlements.csv</code> with the expression below: <b>641</b>.</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-python">count( <span class="org-string">"GROUND_PARENT_ID"</span> )
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Assure that the total matches the number of settlements from above: <b>4615 + 641 = 5256</b>.</li>
+</ul>
+<ul class="org-ul">
+<li>Assure that the <code>EKATTE_ID</code> column is type text for all used layers, and the data columns are numeric to prevent the need to cast types later in the process.</li>
+
+<li>Verify if the <code>settlements.csv</code> has <code>GROUND_PARENT_ID</code> applied for <b>all features</b>. Settlements with own grounds should have their <code>EKATTE_ID</code> as a <code>GROUND_PARENT_ID</code>.</li>
+
+<li>Verify if the fields for numeric attributes (e.g. <code>area</code> in <code>settlements.csv</code>) are loaded with the proper type or numeric formulae won't be applicable for these fields.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7c760f7" class="outline-3">
+<h3 id="org7c760f7">Defining Data Relationships</h3>
+<div class="outline-text-3" id="text-org7c760f7">
+<ul class="org-ul">
+<li>Since multiple settlements can belong to a single ground polygon entity we need to define a many-to-one relationship between them. That will allow us to compute aggregate values directly in QGIS:
+<ul class="org-ul">
+<li>In <code>Project</code> -&gt; <code>Properties</code> -&gt; <code>Relations</code> click on <code>Add Relation</code>.</li>
+<li>Add relation name: <code>rel_ground_settlements</code>.</li>
+<li>The parent is <code>Grounds</code> with a referenced key <code>EKATTE_ID</code>.</li>
+<li>The referencing layer (child) is <code>Settlements</code> with referencing field <code>GROUND_PARENT_ID</code>.</li>
+<li>Name the <code>Id</code> for convenience: <code>rel_sg</code>.</li>
+<li>The relationship strength is <code>Association</code>.</li>
+</ul></li>
+<li>The settlement polygons now have a one-to-many relationship to the look aside table <code>rel_settl_ground</code> established.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6194207" class="outline-3">
+<h3 id="org6194207">Defining Settlements-Population Table Join</h3>
+<div class="outline-text-3" id="text-org6194207">
+<ul class="org-ul">
+<li>In the <code>Settlements</code> layer create a join to the <code>Population 2018</code>:
+<ul class="org-ul">
+<li>Join field: <code>EKATTE_ID</code>. Target field: <code>EKATTE_ID</code>.</li>
+<li>Enable Custom Field Name Prefix: <code>pop2018_</code>.</li>
+<li><code>Settlements</code> should now have a <code>pop2018_POPULATION</code> column of integer type.</li>
+</ul></li>
+
+<li>Verify if the population records have successfully joined.
+<ul class="org-ul">
+<li>Note the sum of all matched features' individual population records: use <code>sum("pop2018_POPULATION")</code>.</li>
+<li>Sum is <b>7,000,039</b>. The records from the population layer have successfully joined the <code>Settlements</code> layer.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7542209" class="outline-2">
+<h2 id="org7542209">Computing Required Data</h2>
+<div class="outline-text-2" id="text-org7542209">
+</div>
+<div id="outline-container-org34c583c" class="outline-3">
+<h3 id="org34c583c">Add Styling Functions</h3>
+<div class="outline-text-3" id="text-org34c583c">
+<ul class="org-ul">
+<li>A couple of python functions that we will use to prepare annotation templates.</li>
+<li>In the Field Calculator's Function Editor add:
+<ul class="org-ul">
+<li>Function to create annotations' data:</li>
+</ul></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">python 3.6+</span>
+<span class="org-keyword">from</span> qgis.core <span class="org-keyword">import</span> *
+<span class="org-keyword">from</span> qgis.gui <span class="org-keyword">import</span> *
+
+<span class="org-type">@qgsfunction</span>(args=<span class="org-string">'auto'</span>, group=<span class="org-string">'Deo_FmtFunc'</span>)
+<span class="org-keyword">def</span> <span class="org-function-name">pop_density_map_create_event_annotations</span>(data_year,
+                                             ent_fullname,
+                                             pop_density,
+                                             pop_total,
+                                             ent_area,
+                                             children_ids,
+                                             children_names,
+                                             children_pop,
+                                             feature, parent):
+    <span class="org-variable-name">children_ent_info</span> = <span class="org-builtin">list</span>(<span class="org-builtin">zip</span>(children_ids.split(<span class="org-string">'|'</span>),
+                                 children_names.split(<span class="org-string">'|'</span>),
+                                 children_pop.split(<span class="org-string">'|'</span>)))
+    <span class="org-comment-delimiter"># </span><span class="org-comment">Sort by population</span>
+    children_ent_info.sort(key=<span class="org-keyword">lambda</span> tup: <span class="org-builtin">int</span>(tup[<span class="org-highlight-numbers-number">2</span>]), reverse=<span class="org-constant">True</span>)
+    <span class="org-variable-name">anno_data</span> = {
+        <span class="org-string">'data_year'</span>: data_year,
+        <span class="org-string">'ent_name'</span>: ent_fullname,
+        <span class="org-string">'pop_density'</span>: pop_density,
+        <span class="org-string">'pop_total'</span>: pop_total,
+        <span class="org-string">'ent_area'</span>: ent_area,
+        <span class="org-string">'child_list'</span>: children_ent_info,
+    }
+    <span class="org-keyword">return</span> anno_data
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Function to create HTML event annotations:</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">python 3.6+</span>
+<span class="org-type">@qgsfunction</span>(args=<span class="org-string">'auto'</span>, group=<span class="org-string">'Deo_FmtFunc'</span>)
+<span class="org-keyword">def</span> <span class="org-function-name">pop_density_map_format_event_annotations</span>(anno_data, feature, parent):
+    <span class="org-variable-name">ch_ent_rows</span> = []
+    <span class="org-keyword">for</span> child <span class="org-keyword">in</span> anno_data[<span class="org-string">'child_list'</span>]:
+        <span class="org-variable-name">ch_row</span> = f<span class="org-string">'&lt;tr&gt;&lt;td&gt;&lt;strong&gt;{child[0]}&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;{child[1]}&lt;/td&gt;&lt;td&gt;{child[2]}&lt;/td&gt;&lt;/tr&gt;'</span>
+        ch_ent_rows.append(ch_row)
+
+    <span class="org-variable-name">ch_ent_table</span> = f<span class="org-string">"""</span>
+<span class="org-string">&lt;table&gt;</span>
+<span class="org-string">    &lt;tr&gt;&lt;th&gt;ID&lt;/th&gt;&lt;th&gt;&#1053;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1086; &#1084;&#1103;&#1089;&#1090;&#1086;&lt;/th&gt;&lt;th&gt;&#1041;&#1088;&#1086;&#1081; &#1078;&#1080;&#1090;&#1077;&#1083;&#1080; ({anno_data['data_year']})&lt;/th&gt;&lt;/tr&gt;</span>
+<span class="org-string">    {''.join(ch_ent_rows)}</span>
+<span class="org-string">&lt;/table&gt;</span>
+<span class="org-string">"""</span>
+
+    <span class="org-variable-name">event_anno_html</span> = f<span class="org-string">"""</span>
+<span class="org-string">&lt;h4&gt;{anno_data['ent_name']}: {anno_data['pop_density']} &#1076;/&#1082;&#1084;2&lt;/h4&gt;</span>
+<span class="org-string">&lt;hr&gt;</span>
+<span class="org-string">&lt;h5&gt;&#1053;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1080;&#1077;: {anno_data['pop_total']}&lt;/h5&gt;</span>
+<span class="org-string">&lt;h5&gt;&#1055;&#1083;&#1086;&#1097;: {anno_data['ent_area']} &#1082;&#1084;2&lt;/h5&gt;</span>
+<span class="org-string">&lt;h5&gt;&#1053;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1080; &#1084;&#1077;&#1089;&#1090;&#1072; &#1074; &#1086;&#1073;&#1093;&#1074;&#1072;&#1090;&#1072; &#1085;&#1072; &#1079;&#1077;&#1084;&#1083;&#1080;&#1097;&#1077;&#1090;&#1086;: &lt;/h5&gt;</span>
+<span class="org-string">{ch_ent_table}</span>
+<span class="org-string">"""</span>
+    <span class="org-keyword">return</span> event_anno_html
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org87f76dc" class="outline-3">
+<h3 id="org87f76dc">Data Fixes and Enhancement</h3>
+<div class="outline-text-3" id="text-org87f76dc">
+<ul class="org-ul">
+<li>Use the field calculator with the <code>Grounds</code> layer to create all of the columns detailed below.
+<ul class="org-ul">
+<li>Don't create virtual columns, it slows everything down, use permanent columns.</li>
+<li>After each column is created stop editing and save changes to the layer (I had a weird table update issue, possibly due to using geojson format).</li>
+</ul></li>
+
+<li>Create column <code>AREA_KM2</code>.
+<ul class="org-ul">
+<li>Use: <code>relation_aggregate('rel_sg', 'sum', area) / 1000</code></li>
+<li>Confirm the calculation is correct by summing the AREA<sub>KM2</sub> column to the total area of the country.</li>
+</ul></li>
+
+<li>Create column <code>SETTL_COUNT</code>.
+<ul class="org-ul">
+<li>Use: <code>relation_aggregate('rel_sg', 'count', EKATTE_ID)</code></li>
+<li>Confirm the calculation using <code>sum("SETTL_COUNT")</code> to check the total settlement count.</li>
+<li>If the result matches the total amount of settlements in Bulgaria we can conclude the relationship information provided is correct.</li>
+</ul></li>
+
+<li>Create column <code>POP_NSI_2018</code>:
+<ul class="org-ul">
+<li>Use: <code>relation_aggregate('rel_sg', 'sum', pop2018_2018)</code>.</li>
+<li>Confirm the calculation is correct by summing the total to the previously produced figure for total CA population.</li>
+</ul></li>
+
+<li>Create column <code>POP_DENSITY_NSI_2018</code>:
+<ul class="org-ul">
+<li>Type is <code>Decimal</code> with precision 2.</li>
+<li>Use: <code>round("POP_NSI_2017"/"AREA_KM2" , 2)</code></li>
+</ul></li>
+
+<li>Create column <code>SETTL_NAMES_LIST</code>:
+<ul class="org-ul">
+<li>Use: <code>relation_aggregate('rel_ground_settlements', 'concatenate', "t_v_m" || ' ' || "name", '|')</code></li>
+</ul></li>
+
+<li>Create column <code>SETTL_ID_LIST</code>, a new text field with the IDs of all settlements belonging to particular grounds polygon:
+<ul class="org-ul">
+<li>Set the output field length to 0.</li>
+<li>Use: <code>relation_aggregate('rel_ground_settlements', 'concatenate', EKATTE_ID, '|')</code></li>
+</ul></li>
+
+<li>Create column <code>POP_NSI_2018_LIST</code>:
+<ul class="org-ul">
+<li>Set the output field to text and the output field length 0.</li>
+<li>Use: <code>relation_aggregate('rel_ground_settlements', 'concatenate', coalesce(to_string("pop2018_POPULATION"), 'N/A'), '|')</code></li>
+</ul></li>
+
+<li>Create <code>POP_DENSITY_NSI_2018_EVENT_ANNO</code>, a label column to hold the string to display on hover (or on click).
+<ul class="org-ul">
+<li>Use text output field type with field length 0.</li>
+<li>Use the annotation creating formulae:</li>
+</ul></li>
+</ul>
+<pre class="example">
+pop_density_map_format_event_annotations( (pop_density_map_create_event_annotations('2018',  "SETTLEMENT_FULLNAME" ,  "POP_DENSITY_NSI_2018" , "POP_NSI_2018" , "AREA_KM2" , "SETTL_ID_LIST" , "SETTL_NAMES_LIST" , "POP_NSI_2018_LIST" )))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgafefc19" class="outline-2">
+<h2 id="orgafefc19">Map Preparation</h2>
+<div class="outline-text-2" id="text-orgafefc19">
+<ul class="org-ul">
+<li>Styling the map.</li>
+</ul>
+</div>
+
+<div id="outline-container-org3bfd859" class="outline-3">
+<h3 id="org3bfd859">Map Background</h3>
+<div class="outline-text-3" id="text-org3bfd859">
+<ul class="org-ul">
+<li>Set the map background: <b>#262f33</b></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3feba71" class="outline-3">
+<h3 id="org3feba71">Grounds' Color Scale Classification</h3>
+<div class="outline-text-3" id="text-org3feba71">
+<ul class="org-ul">
+<li>Apply the new color ramp with 12 classes:
+<ul class="org-ul">
+<li>0-1</li>
+<li>1-2</li>
+<li>2-4</li>
+<li>4-8</li>
+<li>8-15</li>
+<li>15-30</li>
+<li>30-60</li>
+<li>60-120</li>
+<li>120-240</li>
+<li>240-480</li>
+<li>480-1000</li>
+<li>1000+</li>
+</ul></li>
+
+<li>Apply color ramp <code>Viridis</code> against the defined classes.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb2578fc" class="outline-3">
+<h3 id="orgb2578fc">Grounds' Borders</h3>
+<div class="outline-text-3" id="text-orgb2578fc">
+<ul class="org-ul">
+<li>Set the <code>Grounds</code> layer's polygon boundary as 0.1mm color: <b>#5a5a5a</b></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgae4856c" class="outline-3">
+<h3 id="orgae4856c">Map Annotations</h3>
+<div class="outline-text-3" id="text-orgae4856c">
+<ul class="org-ul">
+<li>Event annotations on maps exported via <code>qgis2web</code> (on hover, on click events) can be controlled via the <code>Form</code> settings window.</li>
+
+<li>Prepare <code>Grounds</code> layer's event annotations:
+<ul class="org-ul">
+<li>Rename the layer to Землища.</li>
+<li>Set all fields' widgets to "hidden".</li>
+<li>Set the <code>POP_DENSITY_NSI_2018_EVENT_ANNO</code> widget type to <code>Text Edit</code>. Check <code>Multiline</code> and <code>HTML</code> options.</li>
+<li>Verify the rendered HTML.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0c8c70a" class="outline-2">
+<h2 id="org0c8c70a">Export Using QGIS2WEB</h2>
+<div class="outline-text-2" id="text-org0c8c70a">
+<ul class="org-ul">
+<li>Select the <code>OpenLayers</code> export option.</li>
+
+<li>Layers and Groups:
+<ul class="org-ul">
+<li>Turn off <code>Popups</code> for <code>Bulgaria</code> and <code>Grounds</code> layers.</li>
+</ul></li>
+
+<li>Appearance:
+<ul class="org-ul">
+<li>Set <code>Add layers list</code> to Collapsed.</li>
+<li>Select <code>Template</code> to full-screen.</li>
+<li>Set Min zoom level to 7.</li>
+<li>Set Max zoom level to 11.</li>
+<li>Check the <code>Restrict to extent</code> option.</li>
+</ul></li>
+
+<li>Data export:
+<ul class="org-ul">
+<li>Set the <code>Exporter</code> to Export to folder and choose the directory.</li>
+</ul></li>
+
+<li>Check the result preview and export.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: deo</p>
+<p class="date">Created: 2020-02-27 Thu 14:11</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
